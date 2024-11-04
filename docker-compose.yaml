@@ -1,0 +1,44 @@
+version: "3.1"
+
+services:
+
+  app:
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - ebayadvertscrawler_crowler-net
+    ports:
+      - 8090:8090
+    build:
+       dockerfile: Dockerfile
+
+  db:
+    image: mysql:5.5
+    restart: always
+    networks:
+      - ebayadvertscrawler_crowler-net
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: '0987dfczcvb'
+      MYSQL_ROOT_PASSWORD: '0987dfczcvb'
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - my-db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysql", "-u", "root","--execute", "SHOW DATABASES;"]
+      interval: 3s
+      retries: 5
+      timeout: 5s
+
+volumes:
+   my-db:
+
+networks:
+  ebayadvertscrawler_crowler-net:
+     external: true
