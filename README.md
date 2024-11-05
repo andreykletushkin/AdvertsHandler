@@ -31,3 +31,53 @@ Es werden zwei Docker-Container gestartet:
 
 - MySQL: NoSQL-Datenbank, um Daten wie Nachrichten und Anzeigen zu speichern.
 - Spring Boot
+
+### REST Schnittstellen Beispiel:
+- Anmeldung:
+POST localhost:8090/auth/signup
+Request:
+{
+    "username":"Andrey",
+    "password":"0987dfczcvb",
+    "fullname":"Andrey Kletushkin"
+}
+Response:
+{
+    "username": "Andrey",
+    "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBbmRyZXkiLCJyb2xlcyI6WyJGUkVFX1RJRVIiXSwiaWF0IjoxNzMwODEwNzE1LCJleHAiOjE3MzA4MTQzMTV9.umBBFlwN7Rb5wI629lk6nlHOz_lO4BSGuvdcPi9MItY"
+
+- Login:
+POST localhost:8090/auth/login
+Request:
+{
+    "username":"Andrey",
+    "password":"0987dfczcvb"
+
+}
+Response:
+{
+    "username": "Andrey",
+    "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBbmRyZXkiLCJyb2xlcyI6WyJGUkVFX1RJRVIiXSwiaWF0IjoxNzMwODA2OTI4LCJleHAiOjE3MzA4MTA1Mjh9._Et1x0sii2YsVQo8bNYV8Ehnfmn45UBsK5F8a2hBkSA"
+}
+
+- User Ankunft
+  GET localhost:8090/auth/user
+  Header: Authorization. Bearear $token
+  Response:
+  """{
+    "id": 1,
+    "username": "Andrey",
+    "fullname": "Andrey Kletushkin",
+    "roles": [
+        "FREE_TIER"
+    ],
+    "enabled": true,
+    "accountNonExpired": true,
+    "credentialsNonExpired": true,
+    "accountNonLocked": true,
+    "authorities": [
+        {
+            "authority": "FREE_TIER"
+        }
+    ]
+}""" 
