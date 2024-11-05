@@ -77,6 +77,35 @@ Es werden zwei Docker-Container gestartet:
 ```
 
 
+### Benutzer-Details abrufen
+
+**Methode:** `GET`  
+**URL:** `localhost:8090/auth/user`
+
+**Header:**
+`Authorization: Bearer $token`
+
+**Response:**
+```json
+  {
+  "id": 1,
+  "username": "Andrey",
+  "fullname": "Andrey Kletushkin",
+  "roles": ["FREE_TIER"],
+  "enabled": true,
+  "accountNonExpired": true,
+  "credentialsNonExpired": true,
+  "accountNonLocked": true,
+  "authorities": [
+    {
+      "authority": "FREE_TIER"
+    }
+  ]
+}
+```
+
+
+
 
 
 
