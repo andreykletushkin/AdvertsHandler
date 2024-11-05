@@ -27,3 +27,7 @@ Diese JAR-Datei wird später im Docker-Container verwendet. <br>
     ```bash
    docker compose up
     ```
+Es werden zwei Docker-Container gestartet:
+
+- MySQL: NoSQL-Datenbank, um Daten wie Nachrichten und Anzeigen zu speichern.
+- Spring Boot
