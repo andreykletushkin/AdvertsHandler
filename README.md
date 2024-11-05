@@ -55,6 +55,29 @@ Es werden zwei Docker-Container gestartet:
 }
 ```
 
+### Login
+
+**Methode:** `POST`  
+**URL:** `localhost:8090/auth/login`
+
+**Request Body:**
+```json
+{
+  "username": "Andrey",
+  "password": "0987dfczcvb"
+}
+
+```
+**Response:**
+```json
+{
+  "username": "Andrey",
+  "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBbmRyZXkiLCJyb2xlcyI6WyJGUkVFX1RJRVIiXSwiaWF0IjoxNzMwODEwNzE1LCJleHAiOjE3MzA4MTQzMTV9.umBBFlwN7Rb5wI629lk6nlHOz_lO4BSGuvdcPi9MItY"
+}
+```
+
+
+
 
 
 
