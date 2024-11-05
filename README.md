@@ -12,3 +12,18 @@ Dieses Ereignis wird in der Webanwendung von der Event-JS-Klasse genutzt.
 | **Kontainer**      | Docker                                   |
 | **Gradle**         | v3.8                                     |
 
+## Anwendung erstellen und starten
+
+Die Anwendung kann als Docker-Container bereitgestellt werden, was der empfohlene Weg zur Ausführung ist. Um den Docker-Container zu erstellen, sind folgende Schritte erforderlich:
+
+1. Im Verzeichnis AdvertisementsHandler den folgenden Befehl ausführen:
+    ```bash
+   .\gradlew clean build
+    ```
+   Als Ergebnis wird eine JAR-Datei erstellt: <br>
+<mark style="background-color: #808080">build/libs/adverdshandler-1.0.jar</mark> <br>
+Diese JAR-Datei wird später im Docker-Container verwendet. <br>
+2. Nun können wir die Docker-Container erstellen und starten:
+    ```bash
+   docker compose up
+    ```
