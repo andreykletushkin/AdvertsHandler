@@ -17,6 +17,7 @@ public interface AdvertMapper {
 
         switch (changeStreamEvent.getOperationType()) {
             case INSERT:
+                AdvertResource advertResource = toResource(changeStreamEvent.getBody());
                 event = new AdvertSaved().setAdvert(toResource(changeStreamEvent.getBody()));
                 break;
             default:

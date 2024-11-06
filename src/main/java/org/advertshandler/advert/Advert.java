@@ -1,17 +1,12 @@
 package org.advertshandler.advert;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.Accessors;
 import org.springframework.data.annotation.Id;
 
-@EqualsAndHashCode(of = "id")
-@Getter
-@Setter
-@ToString
-@Accessors(chain = true)
+
+@Data
+@NoArgsConstructor
 public class Advert {
 
     @Id

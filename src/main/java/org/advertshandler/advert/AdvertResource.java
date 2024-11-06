@@ -1,10 +1,11 @@
 package org.advertshandler.advert;
 
 import lombok.Data;
-import lombok.experimental.Accessors;
+import lombok.NoArgsConstructor;
+
 
 @Data
-@Accessors(chain = true)
+@NoArgsConstructor
 public class AdvertResource {
 
     private String id;

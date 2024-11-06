@@ -32,6 +32,7 @@ public class AdvertController {
         final Flux<Event> beats = Flux.interval(Duration.ofSeconds(25))
                 .map(sequence -> new HeartBeat());
 
+
         return Flux.merge(beats, advertService.listenToEvents())
                 .map(event -> ServerSentEvent.<Event>builder()
                 .retry(Duration.ofSeconds(5))

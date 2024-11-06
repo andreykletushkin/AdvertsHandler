@@ -139,7 +139,7 @@ public class AuthenticationTest {
         RegistrationRequest registrationRequest = new RegistrationRequest();
         registrationRequest.setUsername(TEST_REGISTER_USERNAME);
         registrationRequest.setPassword(TEST_REGISTER_PASSWORD);
-        registrationRequest.setFullName(TEST_REGISTER_FULLNAME);
+        registrationRequest.setFullname(TEST_REGISTER_FULLNAME);
 
         mvc.perform(post("/auth/signup")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -166,7 +166,7 @@ public class AuthenticationTest {
         RegistrationRequest registrationRequest = new RegistrationRequest();
         registrationRequest.setUsername(TEST_REGISTER_USERNAME);
         registrationRequest.setPassword(TEST_REGISTER_PASSWORD);
-        registrationRequest.setFullName(TEST_REGISTER_FULLNAME);
+        registrationRequest.setFullname(TEST_REGISTER_FULLNAME);
 
         MvcResult result = mvc.perform(post("/auth/signup")
                         .contentType(MediaType.APPLICATION_JSON)

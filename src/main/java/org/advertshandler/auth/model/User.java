@@ -1,5 +1,6 @@
 package org.advertshandler.auth.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -25,8 +26,9 @@ public class User implements UserDetails {
 
     private String username;
 
-    private String fullName;
+    private String fullname;
 
+    @JsonIgnore
     private String password;
 
 

@@ -24,9 +24,14 @@ public class AuthenticationService {
 
     private final PasswordEncoder passwordEncoder;
 
+    public User getUser(String username) {
+        return userRepository.findByUsername(username)
+                .orElseThrow(()->new IllegalArgumentException("User don't found"));
+    }
+
     public User signup(RegistrationRequest input) {
         User user = User.builder()
-                .fullName(input.getFullName())
+                .fullname(input.getFullname())
                 .username(input.getUsername())
                 .roles(List.of(Role.FREE_TIER))
                 .password(passwordEncoder.encode(input.getPassword()))

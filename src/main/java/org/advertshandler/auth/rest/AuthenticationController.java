@@ -8,6 +8,8 @@ import org.advertshandler.auth.rest.dto.AuthentificationResponse;
 import org.advertshandler.auth.rest.dto.RegistrationRequest;
 import org.advertshandler.auth.rest.dto.RegistrationResponse;
 import org.advertshandler.auth.security.JwtService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -25,6 +27,8 @@ import static org.springframework.http.ResponseEntity.ok;
 @RequiredArgsConstructor
 public class AuthenticationController {
 
+    private Logger logger = LoggerFactory.getLogger(AuthenticationController.class);
+
     @Autowired
     private final JwtService jwtService;
 
@@ -33,9 +37,16 @@ public class AuthenticationController {
 
     private final AuthenticationService authenticationService;
 
+    @GetMapping("/user")
+    public ResponseEntity<User> getUser(@AuthenticationPrincipal UserDetails userDetails) {
+        User user = authenticationService.getUser(userDetails.getUsername());
+        return ok(user);
+    }
+
     @PostMapping("/signup")
     public ResponseEntity<RegistrationResponse> register(@RequestBody RegistrationRequest registrationRequest) {
         User registeredUser = authenticationService.signup(registrationRequest);
+        logger.info("Registration: {}", registeredUser);
         String token = jwtService.createToken(registeredUser.getUsername(), this.users.findByUsername(registeredUser.getUsername())
                 .orElseThrow(() -> new UsernameNotFoundException("Username " + registeredUser.getUsername() + "not found")).getRoles());
         RegistrationResponse response = new RegistrationResponse(registeredUser.getUsername(), token);
