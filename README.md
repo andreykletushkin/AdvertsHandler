@@ -21,7 +21,7 @@ Die Anwendung kann als Docker-Container bereitgestellt werden, was der empfohlen
    .\gradlew clean build
     ```
    Als Ergebnis wird eine JAR-Datei erstellt: <br>
-<mark style="background-color: #808080">build/libs/adverdshandler-1.0.jar</mark> <br>
+`build/libs/adverdshandler-1.0.jar` <br>
 Diese JAR-Datei wird später im Docker-Container verwendet. <br>
 2. Nun können wir die Docker-Container erstellen und starten:
     ```bash
@@ -102,6 +102,37 @@ Es werden zwei Docker-Container gestartet:
     }
   ]
 }
+```
+
+### Wechsel das Konto auf Premium
+
+**Methode:** `PUT`  
+**URL:** `localhost:8090/auth/premium`
+
+**Header:**
+`Authorization: Bearer $token`
+
+**Response:**
+```json
+"id": 1,
+    "username": "Andrey",
+    "fullname": "Andrey Kletushkin",
+    "roles": [
+        "FREE_TIER",
+        "COMMERCIAL_USE"
+    ],
+    "enabled": true,
+    "accountNonExpired": true,
+    "credentialsNonExpired": true,
+    "accountNonLocked": true,
+    "authorities": [
+        {
+            "authority": "FREE_TIER"
+        },
+        {
+            "authority": "COMMERCIAL_USE"
+        }
+    ]
 ```
 
 
