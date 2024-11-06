@@ -135,8 +135,15 @@ Es werden zwei Docker-Container gestartet:
     ]
 ```
 
+### Ereignissen von Anzeigen anschicklen
 
+**Methode:** `GET`  
+**URL:** `localhost:8090/adverts/events`
 
+**Header:**
+`Authorization: Bearer $token`
+
+**Response:**
 
 
 
