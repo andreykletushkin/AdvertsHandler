@@ -109,12 +109,13 @@ Es werden zwei Docker-Container gestartet:
 **Methode:** `PUT`  
 **URL:** `localhost:8090/auth/premium`
 
-**Header:**
+**Header:**  
 `Authorization: Bearer $token`
 
 **Response:**
 ```json
-"id": 1,
+{
+    "id": 1,
     "username": "Andrey",
     "fullname": "Andrey Kletushkin",
     "roles": [
@@ -133,9 +134,9 @@ Es werden zwei Docker-Container gestartet:
             "authority": "COMMERCIAL_USE"
         }
     ]
-```
+}
 
-### Ereignissen von Anzeigen anschicklen
+### Ereignisse von Anzeigen empfangen
 
 **Methode:** `GET`  
 **URL:** `localhost:8090/adverts/events`
@@ -144,6 +145,20 @@ Es werden zwei Docker-Container gestartet:
 `Authorization: Bearer $token`
 
 **Response:**
+ Stream von Anzeigen (z.B. von eBay Kleinanzeigen)
+{
+    "advert": {
+        "id": "672d2305346459723ea48ccf",
+        "description": "Hübsche 2-Raum-Wohnung zur Vermietung - auch komplett möbliert!Diese charmante 2-Raum-Wohnung im 1. Obergeschoss eines gepflegten Mehrfamilienhauses bietet auf 48 m² einen idealen Rückzugsort und eine hohe Lebensqualität. Sie ist ab sofort zu vermieten und eignet sich perfekt für Singles oder Paare.Details zur Wohnung:Wohnfläche: 48 m², gut geschnitten und lichtdurchflutetZimmer: 2 großzügige Räume – ein helles Wohnzimmer mit offener Küche und ein komfortables SchlafzimmerBad: Voll gefliest mit Badewanne und für angenehmes LüftenvielZugang: Direkt über eine Treppe innerhalb der Wohnung erreichbar, mit zusätzlicher Abstellfläche unter der Treppe – perfekt für Stauraum!Die Wohnung liegt nur wenige Minuten vom Bahnhof entfernt. Trotz der Nähe zum Bahnhof sind die Züge kaum hörbar, sodass Sie keine Lärmbelästigung zu befürchten haben. Ein geschlossener Innenhof steht Ihnen zur Verfügung, der bei schönem Wetter auch zum Grillen genutzt werden kann.Miete:Kaltmiete: 474,37 €Nebenkosten: 125 € (inklusive Heizung, Wasser etc.)Optional: Möblierung inklusive! Die Wohnung kann auf Wunsch komplett möbliert übernommen werden – mit allen Möbeln, Elektrogeräten und Lampen, sodass Sie sofort einziehen können, ohne zusätzliche Anschaffungen tätigen zu müssen. Alles für gesamt 850 € – perfekt für einen unkomplizierten Start in Ihr neues Zuhause!Kontakt: Für weitere Informationen oder einen Besichtigungstermin stehe ich gerne zur Verfügung.Vermieter Saaletalimmobilien",
+        "owner": "NH",
+        "location": "07745 Thüringen - Jena",
+        "price": "475 €",
+        "title": "Nachmieter für hübsche Zweiraumwohung gesucht",
+        "link": "https://www.kleinanzeigen.de/s-anzeige/nachmieter-fuer-huebsche-zweiraumwohung-gesucht/2915686471-203-3771",
+        "time": "Heute, 21:27"
+    }
+}
+
 
 
 
