@@ -135,6 +135,7 @@ Es werden zwei Docker-Container gestartet:
         }
     ]
 }
+```
 
 ### Ereignisse von Anzeigen empfangen
 
@@ -146,6 +147,7 @@ Es werden zwei Docker-Container gestartet:
 
 **Response:**
  Stream von Anzeigen (z.B. von eBay Kleinanzeigen)
+ ```json
 {
     "advert": {
         "id": "672d2305346459723ea48ccf",
@@ -158,6 +160,7 @@ Es werden zwei Docker-Container gestartet:
         "time": "Heute, 21:27"
     }
 }
+```
 
 
 
