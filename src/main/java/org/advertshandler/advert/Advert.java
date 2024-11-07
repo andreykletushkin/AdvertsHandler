@@ -1,12 +1,9 @@
 package org.advertshandler.advert;
 
-import lombok.*;
-import lombok.experimental.Accessors;
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 
-
 @Data
-@NoArgsConstructor
 public class Advert {
 
     @Id
